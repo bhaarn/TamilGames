@@ -3,6 +3,7 @@ package com.padhuga.tamil.games.listeners;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.widget.AbsListView;
@@ -10,18 +11,23 @@ import android.widget.AbsListView;
 import com.padhuga.tamil.games.adapters.ItemBaseAdapter;
 import com.padhuga.tamil.games.models.Item;
 import com.padhuga.tamil.games.models.PassObject;
+import com.padhuga.tamil.games.models.Results;
 import com.padhuga.tamil.games.utilities.AddOrRemove;
+import com.padhuga.tamil.games.utilities.Constants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemBaseDragListener implements View.OnDragListener {
 
     private final Item me;
     private final Context context;
+    private ArrayList<Results> results;
 
-    public ItemBaseDragListener(Item i, Context context){
+    public ItemBaseDragListener(Item i, Context context, ArrayList<Results> results){
         me = i;
         this.context = context;
+        this.results = results;
     }
 
     @Override
@@ -64,6 +70,19 @@ public class ItemBaseDragListener implements View.OnDragListener {
 
                     srcAdapter.notifyDataSetChanged();
                     destAdapter.notifyDataSetChanged();
+
+                    if(srcAdapter.getList().size() == 0) {                //oldParent.getTag().equals("listView1") &&
+                        Constants.droppedItems = new ArrayList<>();
+                        for(int i=0;i<=destList.size();i++) {
+                            if(i==destList.size()-1)
+                            destList.get(i);
+                        }
+                        if(results.get(0).getParent1().remove(Constants.droppedItems)) {
+                            Log.d("Bharani", "Success");
+                        } else {
+                            Log.d("Bharani", "Failure");
+                        }
+                    }
                 }
 
                 v.setBackgroundColor(resumeColor);

@@ -36,6 +36,7 @@
 
         <com.padhuga.tamil.games.activities.LinearLayoutAbsListView
             android:id="@+id/pane2"
+            android:tag="pane2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
@@ -53,12 +54,14 @@
 
             <ListView
                 android:id="@+id/list_view2"
+                android:tag="listView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.padhuga.tamil.games.activities.LinearLayoutAbsListView>
 
         <com.padhuga.tamil.games.activities.LinearLayoutAbsListView
             android:id="@+id/pane3"
+            android:tag="pane3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
@@ -76,12 +79,14 @@
 
             <ListView
                 android:id="@+id/list_view3"
+                android:tag="listView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.padhuga.tamil.games.activities.LinearLayoutAbsListView>
 
         <com.padhuga.tamil.games.activities.LinearLayoutAbsListView
             android:id="@+id/pane4"
+            android:tag="pane4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
@@ -99,12 +104,14 @@
 
             <ListView
                 android:id="@+id/list_view4"
+                android:tag="listView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.padhuga.tamil.games.activities.LinearLayoutAbsListView>
         
         <com.padhuga.tamil.games.activities.LinearLayoutAbsListView
             android:id="@+id/pane5"
+            android:tag="pane5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
@@ -122,12 +129,14 @@
 
             <ListView
                 android:id="@+id/list_view5"
+                android:tag="listView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.padhuga.tamil.games.activities.LinearLayoutAbsListView>
 
         <com.padhuga.tamil.games.activities.LinearLayoutAbsListView
             android:id="@+id/pane6"
+            android:tag="pane6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
@@ -145,6 +154,7 @@
 
             <ListView
                 android:id="@+id/list_view6"
+                android:tag="listView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.padhuga.tamil.games.activities.LinearLayoutAbsListView>
@@ -162,6 +172,7 @@
 
         <com.padhuga.tamil.games.activities.LinearLayoutAbsListView
             android:id="@+id/pane1"
+            android:tag="pane1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
@@ -178,6 +189,7 @@
 
             <ListView
                 android:id="@+id/list_view1"
+                android:tag="listView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.padhuga.tamil.games.activities.LinearLayoutAbsListView>

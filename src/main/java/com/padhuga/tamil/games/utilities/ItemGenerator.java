@@ -4,7 +4,6 @@ package com.padhuga.tamil.games.utilities;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -32,6 +31,7 @@ public class ItemGenerator {
     private List<Item> items5;
     private List<Item> items6;
     private ArrayList<Results> results;
+    ArrayList<ListView> listViews;
 
     public ItemGenerator(Context context) {
         this.context = context;
@@ -48,7 +48,7 @@ public class ItemGenerator {
         getResults();
 
         ArrayList<LinearLayoutAbsListView> areas = new ArrayList<>();
-        ArrayList<ListView> listViews = new ArrayList<>();
+        listViews = new ArrayList<>();
         ArrayList<TextView> textViews = new ArrayList<>();
 
         initItems(childItems);
@@ -84,7 +84,7 @@ public class ItemGenerator {
             listViews.get(i).setOnItemLongClickListener(new ItemBaseLongClickListener());
             areas.add((LinearLayoutAbsListView) rootView.findViewById(areaIds[i]));
             areas.get(i).setVisibility(View.VISIBLE);
-            areas.get(i).setOnDragListener(new ItemMyDragListener());
+            areas.get(i).setOnDragListener(new ItemMyDragListener(results));
             areas.get(i).setAbsListView(listViews.get(i));
         }
     }
@@ -132,14 +132,18 @@ public class ItemGenerator {
 
     private void getResults() {
         // if(items1.size() == 0) {
+        ArrayList<Integer> resultParent1 = null;
+        ArrayList<Integer> resultParent2 = null;
+        ArrayList<Integer> resultParent3 = null;
+        ArrayList<Integer> resultParent4 = null;
+        ArrayList<Integer> resultParent5 = null;
         if (true) {
             for (int resultItems = 0; resultItems < results.size(); resultItems++) {
-                results.get(resultItems).getParent1();
-                Log.d("Bharani1", results.get(resultItems).getParent1() + "");
-                Log.d("Bharani2", results.get(resultItems).getParent2() + "");
-                Log.d("Bharani3", results.get(resultItems).getParent3() + "");
-                Log.d("Bharani4", results.get(resultItems).getParent4() + "");
-                Log.d("Bharani5", results.get(resultItems).getParent5() + "");
+                resultParent1 = results.get(resultItems).getParent1();
+                resultParent2 = results.get(resultItems).getParent2();
+                resultParent3 = results.get(resultItems).getParent3();
+                resultParent4 = results.get(resultItems).getParent4();
+                resultParent5 = results.get(resultItems).getParent5();
             }
         }
     }

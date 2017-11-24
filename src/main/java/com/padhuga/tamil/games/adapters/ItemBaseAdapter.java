@@ -11,6 +11,7 @@ import com.padhuga.tamil.games.R;
 import com.padhuga.tamil.games.listeners.ItemBaseDragListener;
 import com.padhuga.tamil.games.models.Item;
 import com.padhuga.tamil.games.models.ItemBaseViewHolder;
+import com.padhuga.tamil.games.utilities.Constants;
 
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class ItemBaseAdapter extends BaseAdapter {
                 break;
         }
 
-        rowView.setOnDragListener(new ItemBaseDragListener(list.get(position), context));
+        rowView.setOnDragListener(new ItemBaseDragListener(list.get(position), context, Constants.results));
 
         return rowView;
     }
