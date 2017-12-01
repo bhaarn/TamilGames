@@ -122,7 +122,7 @@ public class ItemGenerator {
         for (int i = 0; i < childItems.size(); i++) {
             Drawable d = arrayDrawable.getDrawable(childItems.get(i) - 1);
             String s = arrayText.getString(childItems.get(i) - 1);
-            Item item = new Item(d, s);
+            Item item = new Item(d, s, i + 1);
             items1.add(item);
         }
 

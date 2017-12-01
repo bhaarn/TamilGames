@@ -54,12 +54,16 @@ public class ItemMyDragListener implements View.OnDragListener {
                 srcAdapter.notifyDataSetChanged();
                 destAdapter.notifyDataSetChanged();
 
-                if(srcAdapter.getList().size() == 0) {                //oldParent.getTag().equals("listView1") &&
+                if(srcAdapter.getList().size() == 0) { //oldParent.getTag().equals("listView1") &&
                     Constants.droppedItems = new ArrayList<>();
-                    for(int i=0;i<=destList.size();i++) {
-                        Constants.droppedItems.set(i,destList.get(i));
+                    for(int i=0;i<destList.size();i++) {
+                        Constants.droppedItems.add(destList.get(i).ItemPlaceValue);
                     }
-                    if(results.get(0).getParent1().remove(Constants.droppedItems)) {
+                    ArrayList<Integer> a = new ArrayList<>();
+                    a = Constants.droppedItems;
+                    if(results.get(0).getParent1() != null && Constants.droppedItems.size() == results.get(0).getParent1().size() && Constants.droppedItems.removeAll(results.get(0).getParent1()) && Constants.droppedItems.size() == 0) {
+                        Log.d("Bharani", "Success");
+                    } else if(results.get(0).getParent2() != null && a.size() == results.get(0).getParent2().size() && a.removeAll(results.get(0).getParent2()) && a.size() == 0) {
                         Log.d("Bharani", "Success");
                     } else {
                         Log.d("Bharani", "Failure");
