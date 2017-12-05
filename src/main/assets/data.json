@@ -35,7 +35,7 @@
               "kuril",
               "nedil"
             ],
-            "parentType": "Icon",
+            "parentType": "Text",
             "items": [
               1,
               3,
@@ -67,7 +67,7 @@
               "thinai",
               "makkal"
             ],
-            "parentType": "Icon Text",
+            "parentType": "Text",
             "items": [
               1,
               3,
@@ -109,7 +109,7 @@
             "parentHeading": [
               "sort"
             ],
-            "parentType": "Icon",
+            "parentType": "Text",
             "items": [
               12,
               2,

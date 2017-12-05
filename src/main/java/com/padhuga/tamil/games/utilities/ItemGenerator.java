@@ -30,25 +30,21 @@ public class ItemGenerator {
     private List<Item> items4;
     private List<Item> items5;
     private List<Item> items6;
-    private ArrayList<Results> results;
-    ArrayList<ListView> listViews;
 
     public ItemGenerator(Context context) {
         this.context = context;
     }
 
     public void init(ViewGroup rootView, int parentCount, String layoutType, ArrayList<String> parentHeading, ArrayList<Integer> childItems, ArrayList<Results> results) {
-        this.results = results;
         LinearLayout parentPane = rootView.findViewById(R.id.parent_pane);
         LinearLayout parentPanel1 = rootView.findViewById(R.id.parent_panel1);
         LinearLayout parentPanel2 = rootView.findViewById(R.id.parent_panel2);
         int[] areaIds = new int[]{R.id.pane1, R.id.pane2, R.id.pane3, R.id.pane4, R.id.pane5, R.id.pane6};
         int[] listViewIds = new int[]{R.id.list_view1, R.id.list_view2, R.id.list_view3, R.id.list_view4, R.id.list_view5, R.id.list_view6};
         int[] textViewIds = new int[]{R.id.heading1, R.id.heading2, R.id.heading3, R.id.heading4, R.id.heading5, R.id.heading6};
-        getResults();
 
         ArrayList<LinearLayoutAbsListView> areas = new ArrayList<>();
-        listViews = new ArrayList<>();
+        ArrayList<ListView> listViews = new ArrayList<>();
         ArrayList<TextView> textViews = new ArrayList<>();
 
         initItems(childItems);
@@ -128,23 +124,5 @@ public class ItemGenerator {
 
         arrayDrawable.recycle();
         arrayText.recycle();
-    }
-
-    private void getResults() {
-        // if(items1.size() == 0) {
-        ArrayList<Integer> resultParent1 = null;
-        ArrayList<Integer> resultParent2 = null;
-        ArrayList<Integer> resultParent3 = null;
-        ArrayList<Integer> resultParent4 = null;
-        ArrayList<Integer> resultParent5 = null;
-        if (true) {
-            for (int resultItems = 0; resultItems < results.size(); resultItems++) {
-                resultParent1 = results.get(resultItems).getParent1();
-                resultParent2 = results.get(resultItems).getParent2();
-                resultParent3 = results.get(resultItems).getParent3();
-                resultParent4 = results.get(resultItems).getParent4();
-                resultParent5 = results.get(resultItems).getParent5();
-            }
-        }
     }
 }

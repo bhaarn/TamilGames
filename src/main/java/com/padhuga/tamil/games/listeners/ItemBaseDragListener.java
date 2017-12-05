@@ -24,7 +24,7 @@ public class ItemBaseDragListener implements View.OnDragListener {
     private final Context context;
     private ArrayList<Results> results;
 
-    public ItemBaseDragListener(Item i, Context context, ArrayList<Results> results){
+    public ItemBaseDragListener(Item i, Context context, ArrayList<Results> results) {
         me = i;
         this.context = context;
         this.results = results;
@@ -45,47 +45,65 @@ public class ItemBaseDragListener implements View.OnDragListener {
                 v.setBackgroundColor(resumeColor);
                 break;
             case DragEvent.ACTION_DROP:
-                PassObject passObj = (PassObject)event.getLocalState();
+                PassObject passObj = (PassObject) event.getLocalState();
                 View view = passObj.view;
                 Item passedItem = passObj.item;
                 List<Item> srcList = passObj.srcList;
-                AbsListView oldParent = (AbsListView)view.getParent();
-                ItemBaseAdapter srcAdapter = (ItemBaseAdapter)(oldParent.getAdapter());
+                AbsListView oldParent = (AbsListView) view.getParent();
+                ItemBaseAdapter srcAdapter = (ItemBaseAdapter) (oldParent.getAdapter());
 
-                AbsListView newParent = (AbsListView)v.getParent();
-                ItemBaseAdapter destAdapter = (ItemBaseAdapter)(newParent.getAdapter());
+                AbsListView newParent = (AbsListView) v.getParent();
+                ItemBaseAdapter destAdapter = (ItemBaseAdapter) (newParent.getAdapter());
                 List<Item> destList = destAdapter.getList();
 
                 int removeLocation = srcList.indexOf(passedItem);
                 int insertLocation = destList.indexOf(me);
-				/*
+                /*
 				 * If drag and drop on the same list, same position,
 				 * ignore
 				 */
-                if(srcList != destList || removeLocation != insertLocation){
+                if (srcList != destList || removeLocation != insertLocation) {
                     AddOrRemove addOrRemove = new AddOrRemove();
-                    if(addOrRemove.removeItemToList(srcList, passedItem)){
+                    if (addOrRemove.removeItemToList(srcList, passedItem)) {
                         destList.add(insertLocation, passedItem);
                     }
 
                     srcAdapter.notifyDataSetChanged();
                     destAdapter.notifyDataSetChanged();
 
-                    if(srcAdapter.getList().size() == 0) {                //oldParent.getTag().equals("listView1") &&
+                    if (srcAdapter.getList().size() == 0) {                //oldParent.getTag().equals("listView1") &&
                         Constants.droppedItems = new ArrayList<>();
-                        for(int i=0;i<destList.size();i++) {
+                        for (int i = 0; i < destList.size(); i++) {
                             Constants.droppedItems.add(destList.get(i).ItemPlaceValue);
                         }
                         ArrayList<Integer> a = new ArrayList<>();
-                        a = Constants.droppedItems;
-                        if(results.get(0).getParent1() != null && Constants.droppedItems.size() == results.get(0).getParent1().size() && Constants.droppedItems.removeAll(results.get(0).getParent1()) && Constants.droppedItems.size() == 0) {
+                        ArrayList<Integer> b = new ArrayList<>();
+                        ArrayList<Integer> c = new ArrayList<>();
+                        ArrayList<Integer> d = new ArrayList<>();
+                        ArrayList<Integer> e = new ArrayList<>();
+                        a = b = c = d = e = Constants.droppedItems;
+                     /*   if (results.get(0).getParent1() != null && results.get(0).getParent2() == null) {
+                            int startIdx = Collections.indexOfSubList(results.get(0).getParent1(), a);
+                            if (-1 != startIdx)
+                            {
+                                int endIdx = startIdx + a.size() - 1;
+                            }
+                        } else {*/
+                        if (results.get(0).getParent1() != null && a.size() == results.get(0).getParent1().size() && a.removeAll(results.get(0).getParent1()) && a.size() == 0) {
                             Log.d("Bharani", "Success");
-                        } else if(results.get(0).getParent2() != null && a.size() == results.get(0).getParent2().size() && a.removeAll(results.get(0).getParent2()) && a.size() == 0) {
+                        } else if (results.get(0).getParent2() != null && b.size() == results.get(0).getParent2().size() && b.removeAll(results.get(0).getParent2()) && b.size() == 0) {
+                            Log.d("Bharani", "Success");
+                        } else if (results.get(0).getParent3() != null && c.size() == results.get(0).getParent3().size() && c.removeAll(results.get(0).getParent3()) && c.size() == 0) {
+                            Log.d("Bharani", "Success");
+                        } else if (results.get(0).getParent4() != null && d.size() == results.get(0).getParent4().size() && d.removeAll(results.get(0).getParent4()) && d.size() == 0) {
+                            Log.d("Bharani", "Success");
+                        } else if (results.get(0).getParent5() != null && e.size() == results.get(0).getParent5().size() && e.removeAll(results.get(0).getParent5()) && e.size() == 0) {
                             Log.d("Bharani", "Success");
                         } else {
                             Log.d("Bharani", "Failure");
                         }
                     }
+                    //  }
                 }
 
                 v.setBackgroundColor(resumeColor);
