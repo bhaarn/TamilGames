@@ -70,10 +70,6 @@ public class ItemBaseDragListener implements View.OnDragListener {
 
                     srcAdapter.notifyDataSetChanged();
                     destAdapter.notifyDataSetChanged();
-              //  destList.clear();
-                for(int i=0; i< destAdapter.getList().size();i++) {
-                    destList.add(destAdapter.getList().get(i));
-                }
 
                     if (srcAdapter.getList().size() == 0) {                //oldParent.getTag().equals("listView1") &&
                         ArrayList<Integer> droppedItems = new ArrayList<>();

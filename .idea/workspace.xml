@@ -11,15 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33bfb35b-157a-4a34-8944-d046f53e1434" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.iml" afterPath="$PROJECT_DIR$/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/assets/data.json" afterPath="$PROJECT_DIR$/src/main/assets/data.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/activities/DetailsFragment.java" afterPath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/activities/DetailsFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/adapters/ItemBaseAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/adapters/ItemBaseAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/listeners/ItemBaseDragListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/listeners/ItemBaseDragListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/listeners/ItemMyDragListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/listeners/ItemMyDragListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/utilities/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/utilities/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/utilities/ItemGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/utilities/ItemGenerator.java" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,8 +56,8 @@
       <file leaf-file-name="ItemBaseDragListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/listeners/ItemBaseDragListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-811">
-              <caret line="59" column="58" selection-start-line="59" selection-start-column="58" selection-end-line="59" selection-end-column="58" />
+            <state relative-caret-position="239">
+              <caret line="71" column="55" selection-start-line="71" selection-start-column="55" selection-end-line="71" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -2685,7 +2677,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/listeners/ItemBaseDragListener.java</url>
-          <line>112</line>
+          <line>108</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
@@ -3026,8 +3018,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/padhuga/tamil/games/listeners/ItemBaseDragListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-811">
-          <caret line="59" column="58" selection-start-line="59" selection-start-column="58" selection-end-line="59" selection-end-column="58" />
+        <state relative-caret-position="239">
+          <caret line="71" column="55" selection-start-line="71" selection-start-column="55" selection-end-line="71" selection-end-column="55" />
           <folding />
         </state>
       </provider>
