@@ -12,7 +12,6 @@ import com.padhuga.tamil.games.models.Item;
 import com.padhuga.tamil.games.models.PassObject;
 import com.padhuga.tamil.games.models.Results;
 import com.padhuga.tamil.games.utilities.AddOrRemove;
-import com.padhuga.tamil.games.utilities.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,16 +54,16 @@ public class ItemMyDragListener implements View.OnDragListener {
                 destAdapter.notifyDataSetChanged();
 
                 if (srcAdapter.getList().size() == 0) { //oldParent.getTag().equals("listView1") &&
-                    Constants.droppedItems = new ArrayList<>();
+                    ArrayList<Integer> droppedItems = new ArrayList<>();
                     for (int i = 0; i < destList.size(); i++) {
-                        Constants.droppedItems.add(destList.get(i).ItemPlaceValue);
+                        droppedItems.add(destList.get(i).ItemPlaceValue);
                     }
                     ArrayList<Integer> a = new ArrayList<>();
                     ArrayList<Integer> b = new ArrayList<>();
                     ArrayList<Integer> c = new ArrayList<>();
                     ArrayList<Integer> d = new ArrayList<>();
                     ArrayList<Integer> e = new ArrayList<>();
-                    a = b = c = d = e = Constants.droppedItems;
+                    a = b = c = d = e = droppedItems;
                     if (results.get(0).getParent1() != null && a.size() == results.get(0).getParent1().size() && a.removeAll(results.get(0).getParent1()) && a.size() == 0) {
                         Log.d("Bharani", "Success");
                     } else if (results.get(0).getParent2() != null && b.size() == results.get(0).getParent2().size() && b.removeAll(results.get(0).getParent2()) && b.size() == 0) {

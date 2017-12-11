@@ -11,8 +11,9 @@ import com.padhuga.tamil.games.R;
 import com.padhuga.tamil.games.listeners.ItemBaseDragListener;
 import com.padhuga.tamil.games.models.Item;
 import com.padhuga.tamil.games.models.ItemBaseViewHolder;
-import com.padhuga.tamil.games.utilities.Constants;
+import com.padhuga.tamil.games.models.Results;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemBaseAdapter extends BaseAdapter {
@@ -20,11 +21,13 @@ public class ItemBaseAdapter extends BaseAdapter {
     private final Context context;
     private final List<Item> list;
     private final String layoutType;
+    private ArrayList<Results> results;
 
-    public ItemBaseAdapter(Context context, List<Item> list, String layoutType){
+    public ItemBaseAdapter(Context context, List<Item> list, String layoutType, ArrayList<Results> results){
         this.context = context;
         this.list = list;
         this.layoutType = layoutType;
+        this.results = results;
     }
 
     @Override
@@ -77,7 +80,7 @@ public class ItemBaseAdapter extends BaseAdapter {
                 break;
         }
 
-        rowView.setOnDragListener(new ItemBaseDragListener(list.get(position), context, Constants.results));
+        rowView.setOnDragListener(new ItemBaseDragListener(list.get(position), context, results));
 
         return rowView;
     }

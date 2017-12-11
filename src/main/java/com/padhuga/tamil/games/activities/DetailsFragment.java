@@ -9,8 +9,11 @@ import android.widget.LinearLayout;
 
 import com.padhuga.tamil.games.R;
 import com.padhuga.tamil.games.models.Data;
+import com.padhuga.tamil.games.models.Results;
 import com.padhuga.tamil.games.utilities.Constants;
 import com.padhuga.tamil.games.utilities.ItemGenerator;
+
+import java.util.ArrayList;
 
 
 public class DetailsFragment extends Fragment {
@@ -34,6 +37,7 @@ public class DetailsFragment extends Fragment {
     }
 
     private void setData(ViewGroup rootView) {
+        ArrayList<Results> results;
         int position = getArguments().getInt(Constants.ARG_SECTION_POSITION);
         int childPosition = getArguments().getInt(Constants.ARG_CHILD_POSITION);
         Data data = ((BaseActivity) getActivity()).parentModel.getData().getType().get(position).getType().get(childPosition);
@@ -42,8 +46,8 @@ public class DetailsFragment extends Fragment {
         Constants.layoutType = data.getParentType();
         Constants.childItems = data.getItems();
         Constants.parentHeading = data.getParentHeading();
-        Constants.results = data.getResult();
-        new ItemGenerator(getActivity()).init(rootView, Constants.parentCount, Constants.layoutType, Constants.parentHeading, Constants.childItems, Constants.results);
+        results = data.getResult();
+        new ItemGenerator(getActivity()).init(rootView, Constants.parentCount, Constants.layoutType, Constants.parentHeading, Constants.childItems, results);
         if (Constants.parentCount != 2) {
             LinearLayout adParentView = rootView.findViewById(R.id.ad_parent_view);
             adParentView.setVisibility(View.VISIBLE);

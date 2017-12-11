@@ -13,9 +13,9 @@ import com.padhuga.tamil.games.models.Item;
 import com.padhuga.tamil.games.models.PassObject;
 import com.padhuga.tamil.games.models.Results;
 import com.padhuga.tamil.games.utilities.AddOrRemove;
-import com.padhuga.tamil.games.utilities.Constants;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ItemBaseDragListener implements View.OnDragListener {
@@ -62,7 +62,7 @@ public class ItemBaseDragListener implements View.OnDragListener {
 				 * If drag and drop on the same list, same position,
 				 * ignore
 				 */
-                if (srcList != destList || removeLocation != insertLocation) {
+             //   if (srcList != destList || removeLocation != insertLocation) {
                     AddOrRemove addOrRemove = new AddOrRemove();
                     if (addOrRemove.removeItemToList(srcList, passedItem)) {
                         destList.add(insertLocation, passedItem);
@@ -70,18 +70,22 @@ public class ItemBaseDragListener implements View.OnDragListener {
 
                     srcAdapter.notifyDataSetChanged();
                     destAdapter.notifyDataSetChanged();
+              //  destList.clear();
+                for(int i=0; i< destAdapter.getList().size();i++) {
+                    destList.add(destAdapter.getList().get(i));
+                }
 
                     if (srcAdapter.getList().size() == 0) {                //oldParent.getTag().equals("listView1") &&
-                        Constants.droppedItems = new ArrayList<>();
+                        ArrayList<Integer> droppedItems = new ArrayList<>();
                         for (int i = 0; i < destList.size(); i++) {
-                            Constants.droppedItems.add(destList.get(i).ItemPlaceValue);
+                            droppedItems.add(destList.get(i).ItemPlaceValue);
                         }
                         ArrayList<Integer> a = new ArrayList<>();
                         ArrayList<Integer> b = new ArrayList<>();
                         ArrayList<Integer> c = new ArrayList<>();
                         ArrayList<Integer> d = new ArrayList<>();
                         ArrayList<Integer> e = new ArrayList<>();
-                        a = b = c = d = e = Constants.droppedItems;
+                        a = b = c = d = e = droppedItems;
                      /*   if (results.get(0).getParent1() != null && results.get(0).getParent2() == null) {
                             int startIdx = Collections.indexOfSubList(results.get(0).getParent1(), a);
                             if (-1 != startIdx)
@@ -104,7 +108,25 @@ public class ItemBaseDragListener implements View.OnDragListener {
                         }
                     }
                     //  }
-                }
+            //    }
+                else {
+                        if (results.get(0).getParent1() != null && results.get(0).getParent2() == null) {
+                            ArrayList<Integer> a = new ArrayList<>();
+                            ArrayList<Integer> droppedItems = new ArrayList<>();
+                            for (int i = 0; i < destList.size(); i++) {
+                                droppedItems.add(destList.get(i).ItemPlaceValue);
+                            }
+                            a = droppedItems;
+                            int startIdx = Collections.indexOfSubList(results.get(0).getParent1(), a);
+                            if (-1 != startIdx)
+                            {
+                                int endIdx = startIdx + a.size() - 1;
+                                Log.d("Bharani", "Success");
+                            } else {
+                                Log.d("Bharani", "Failure");
+                            }
+                        }
+                    }
 
                 v.setBackgroundColor(resumeColor);
 

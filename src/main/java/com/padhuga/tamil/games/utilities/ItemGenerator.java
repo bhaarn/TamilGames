@@ -76,7 +76,7 @@ public class ItemGenerator {
             textViews.add((TextView) rootView.findViewById(textViewIds[i]));
             textViews.get(i).setText(parentHeading.get(i));
             listViews.add((ListView) rootView.findViewById(listViewIds[i]));
-            listViews.get(i).setAdapter(new ItemBaseAdapter(context, getItems(i), layoutType));
+            listViews.get(i).setAdapter(new ItemBaseAdapter(context, getItems(i), layoutType, results));
             listViews.get(i).setOnItemLongClickListener(new ItemBaseLongClickListener());
             areas.add((LinearLayoutAbsListView) rootView.findViewById(areaIds[i]));
             areas.get(i).setVisibility(View.VISIBLE);
