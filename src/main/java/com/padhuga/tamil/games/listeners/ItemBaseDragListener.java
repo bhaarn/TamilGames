@@ -76,11 +76,11 @@ public class ItemBaseDragListener implements View.OnDragListener {
                         for (int i = 0; i < destList.size(); i++) {
                             droppedItems.add(destList.get(i).ItemPlaceValue);
                         }
-                        ArrayList<Integer> a = new ArrayList<>();
-                        ArrayList<Integer> b = new ArrayList<>();
-                        ArrayList<Integer> c = new ArrayList<>();
-                        ArrayList<Integer> d = new ArrayList<>();
-                        ArrayList<Integer> e = new ArrayList<>();
+                        ArrayList<Integer> a;
+                        ArrayList<Integer> b;
+                        ArrayList<Integer> c;
+                        ArrayList<Integer> d;
+                        ArrayList<Integer> e;
                         a = b = c = d = e = droppedItems;
                      /*   if (results.get(0).getParent1() != null && results.get(0).getParent2() == null) {
                             int startIdx = Collections.indexOfSubList(results.get(0).getParent1(), a);
@@ -107,7 +107,7 @@ public class ItemBaseDragListener implements View.OnDragListener {
             //    }
                 else {
                         if (results.get(0).getParent1() != null && results.get(0).getParent2() == null) {
-                            ArrayList<Integer> a = new ArrayList<>();
+                            ArrayList<Integer> a;
                             ArrayList<Integer> droppedItems = new ArrayList<>();
                             for (int i = 0; i < destList.size(); i++) {
                                 droppedItems.add(destList.get(i).ItemPlaceValue);

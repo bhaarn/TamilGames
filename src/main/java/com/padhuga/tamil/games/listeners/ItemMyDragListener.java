@@ -58,11 +58,11 @@ public class ItemMyDragListener implements View.OnDragListener {
                     for (int i = 0; i < destList.size(); i++) {
                         droppedItems.add(destList.get(i).ItemPlaceValue);
                     }
-                    ArrayList<Integer> a = new ArrayList<>();
-                    ArrayList<Integer> b = new ArrayList<>();
-                    ArrayList<Integer> c = new ArrayList<>();
-                    ArrayList<Integer> d = new ArrayList<>();
-                    ArrayList<Integer> e = new ArrayList<>();
+                    ArrayList<Integer> a;
+                    ArrayList<Integer> b;
+                    ArrayList<Integer> c;
+                    ArrayList<Integer> d;
+                    ArrayList<Integer> e;
                     a = b = c = d = e = droppedItems;
                     if (results.get(0).getParent1() != null && a.size() == results.get(0).getParent1().size() && a.removeAll(results.get(0).getParent1()) && a.size() == 0) {
                         Log.d("Bharani", "Success");
