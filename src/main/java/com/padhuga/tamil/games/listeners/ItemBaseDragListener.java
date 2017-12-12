@@ -59,29 +59,32 @@ public class ItemBaseDragListener implements View.OnDragListener {
                 int removeLocation = srcList.indexOf(passedItem);
                 int insertLocation = destList.indexOf(me);
                 /*
-				 * If drag and drop on the same list, same position,
+                 * If drag and drop on the same list, same position,
 				 * ignore
 				 */
-             //   if (srcList != destList || removeLocation != insertLocation) {
-                    AddOrRemove addOrRemove = new AddOrRemove();
-                    if (addOrRemove.removeItemToList(srcList, passedItem)) {
-                        destList.add(insertLocation, passedItem);
+                //   if (srcList != destList || removeLocation != insertLocation) {
+                AddOrRemove addOrRemove = new AddOrRemove();
+                if (addOrRemove.removeItemToList(srcList, passedItem)) {
+                    destList.add(insertLocation, passedItem);
+                }
+
+                passedItem.ItemPlaceValue = insertLocation + 1;
+                me.ItemPlaceValue = removeLocation + 1;
+
+                srcAdapter.notifyDataSetChanged();
+                destAdapter.notifyDataSetChanged();
+
+                if (srcAdapter.getList().size() == 0) {                //oldParent.getTag().equals("listView1") &&
+                    ArrayList<Integer> droppedItems = new ArrayList<>();
+                    for (int i = 0; i < destList.size(); i++) {
+                        droppedItems.add(destList.get(i).ItemPlaceValue);
                     }
-
-                    srcAdapter.notifyDataSetChanged();
-                    destAdapter.notifyDataSetChanged();
-
-                    if (srcAdapter.getList().size() == 0) {                //oldParent.getTag().equals("listView1") &&
-                        ArrayList<Integer> droppedItems = new ArrayList<>();
-                        for (int i = 0; i < destList.size(); i++) {
-                            droppedItems.add(destList.get(i).ItemPlaceValue);
-                        }
-                        ArrayList<Integer> a;
-                        ArrayList<Integer> b;
-                        ArrayList<Integer> c;
-                        ArrayList<Integer> d;
-                        ArrayList<Integer> e;
-                        a = b = c = d = e = droppedItems;
+                    ArrayList<Integer> a;
+                    ArrayList<Integer> b;
+                    ArrayList<Integer> c;
+                    ArrayList<Integer> d;
+                    ArrayList<Integer> e;
+                    a = b = c = d = e = droppedItems;
                      /*   if (results.get(0).getParent1() != null && results.get(0).getParent2() == null) {
                             int startIdx = Collections.indexOfSubList(results.get(0).getParent1(), a);
                             if (-1 != startIdx)
@@ -89,40 +92,39 @@ public class ItemBaseDragListener implements View.OnDragListener {
                                 int endIdx = startIdx + a.size() - 1;
                             }
                         } else {*/
-                        if (results.get(0).getParent1() != null && a.size() == results.get(0).getParent1().size() && a.removeAll(results.get(0).getParent1()) && a.size() == 0) {
-                            Log.d("Bharani", "Success");
-                        } else if (results.get(0).getParent2() != null && b.size() == results.get(0).getParent2().size() && b.removeAll(results.get(0).getParent2()) && b.size() == 0) {
-                            Log.d("Bharani", "Success");
-                        } else if (results.get(0).getParent3() != null && c.size() == results.get(0).getParent3().size() && c.removeAll(results.get(0).getParent3()) && c.size() == 0) {
-                            Log.d("Bharani", "Success");
-                        } else if (results.get(0).getParent4() != null && d.size() == results.get(0).getParent4().size() && d.removeAll(results.get(0).getParent4()) && d.size() == 0) {
-                            Log.d("Bharani", "Success");
-                        } else if (results.get(0).getParent5() != null && e.size() == results.get(0).getParent5().size() && e.removeAll(results.get(0).getParent5()) && e.size() == 0) {
+                    if (results.get(0).getParent1() != null && a.size() == results.get(0).getParent1().size() && a.removeAll(results.get(0).getParent1()) && a.size() == 0) {
+                        Log.d("Bharani", "Success");
+                    } else if (results.get(0).getParent2() != null && b.size() == results.get(0).getParent2().size() && b.removeAll(results.get(0).getParent2()) && b.size() == 0) {
+                        Log.d("Bharani", "Success");
+                    } else if (results.get(0).getParent3() != null && c.size() == results.get(0).getParent3().size() && c.removeAll(results.get(0).getParent3()) && c.size() == 0) {
+                        Log.d("Bharani", "Success");
+                    } else if (results.get(0).getParent4() != null && d.size() == results.get(0).getParent4().size() && d.removeAll(results.get(0).getParent4()) && d.size() == 0) {
+                        Log.d("Bharani", "Success");
+                    } else if (results.get(0).getParent5() != null && e.size() == results.get(0).getParent5().size() && e.removeAll(results.get(0).getParent5()) && e.size() == 0) {
+                        Log.d("Bharani", "Success");
+                    } else {
+                        Log.d("Bharani", "Failure");
+                    }
+                }
+                //  }
+                //    }
+                else {
+                    if (results.get(0).getParent1() != null && results.get(0).getParent2() == null) {
+                        ArrayList<Integer> a;
+                        ArrayList<Integer> droppedItems = new ArrayList<>();
+                        for (int i = 0; i < destList.size(); i++) {
+                            droppedItems.add(destList.get(i).ItemPlaceValue);
+                        }
+                        a = droppedItems;
+                        int startIdx = Collections.indexOfSubList(results.get(0).getParent1(), a);
+                        if (-1 != startIdx) {
+                            int endIdx = startIdx + a.size() - 1;
                             Log.d("Bharani", "Success");
                         } else {
                             Log.d("Bharani", "Failure");
                         }
                     }
-                    //  }
-            //    }
-                else {
-                        if (results.get(0).getParent1() != null && results.get(0).getParent2() == null) {
-                            ArrayList<Integer> a;
-                            ArrayList<Integer> droppedItems = new ArrayList<>();
-                            for (int i = 0; i < destList.size(); i++) {
-                                droppedItems.add(destList.get(i).ItemPlaceValue);
-                            }
-                            a = droppedItems;
-                            int startIdx = Collections.indexOfSubList(results.get(0).getParent1(), a);
-                            if (-1 != startIdx)
-                            {
-                                int endIdx = startIdx + a.size() - 1;
-                                Log.d("Bharani", "Success");
-                            } else {
-                                Log.d("Bharani", "Failure");
-                            }
-                        }
-                    }
+                }
 
                 v.setBackgroundColor(resumeColor);
 

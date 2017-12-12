@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 public class Item {
     public final Drawable ItemDrawable;
     public final String ItemString;
-    public final int ItemPlaceValue;
+    public int ItemPlaceValue;
 
     public Item(Drawable drawable, String t, int placeValue) {
         ItemDrawable = drawable;
