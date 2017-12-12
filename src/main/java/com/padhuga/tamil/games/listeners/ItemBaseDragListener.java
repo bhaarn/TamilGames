@@ -3,7 +3,6 @@ package com.padhuga.tamil.games.listeners;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.widget.AbsListView;
@@ -13,6 +12,7 @@ import com.padhuga.tamil.games.models.Item;
 import com.padhuga.tamil.games.models.PassObject;
 import com.padhuga.tamil.games.models.Results;
 import com.padhuga.tamil.games.utilities.AddOrRemove;
+import com.padhuga.tamil.games.utilities.AlertGenerator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -73,6 +73,7 @@ public class ItemBaseDragListener implements View.OnDragListener {
 
                 srcAdapter.notifyDataSetChanged();
                 destAdapter.notifyDataSetChanged();
+                AlertGenerator alertGenerator = new AlertGenerator();
 
                 if (srcAdapter.getList().size() == 0) {                //oldParent.getTag().equals("listView1") &&
                     ArrayList<Integer> droppedItems = new ArrayList<>();
@@ -93,17 +94,17 @@ public class ItemBaseDragListener implements View.OnDragListener {
                             }
                         } else {*/
                     if (results.get(0).getParent1() != null && a.size() == results.get(0).getParent1().size() && a.removeAll(results.get(0).getParent1()) && a.size() == 0) {
-                        Log.d("Bharani", "Success");
+                        alertGenerator.buildAlert(context, true);
                     } else if (results.get(0).getParent2() != null && b.size() == results.get(0).getParent2().size() && b.removeAll(results.get(0).getParent2()) && b.size() == 0) {
-                        Log.d("Bharani", "Success");
+                        alertGenerator.buildAlert(context, true);
                     } else if (results.get(0).getParent3() != null && c.size() == results.get(0).getParent3().size() && c.removeAll(results.get(0).getParent3()) && c.size() == 0) {
-                        Log.d("Bharani", "Success");
+                        alertGenerator.buildAlert(context, true);
                     } else if (results.get(0).getParent4() != null && d.size() == results.get(0).getParent4().size() && d.removeAll(results.get(0).getParent4()) && d.size() == 0) {
-                        Log.d("Bharani", "Success");
+                        alertGenerator.buildAlert(context, true);
                     } else if (results.get(0).getParent5() != null && e.size() == results.get(0).getParent5().size() && e.removeAll(results.get(0).getParent5()) && e.size() == 0) {
-                        Log.d("Bharani", "Success");
+                        alertGenerator.buildAlert(context, true);
                     } else {
-                        Log.d("Bharani", "Failure");
+                        alertGenerator.buildAlert(context, false);
                     }
                 }
                 //  }
@@ -119,9 +120,9 @@ public class ItemBaseDragListener implements View.OnDragListener {
                         int startIdx = Collections.indexOfSubList(results.get(0).getParent1(), a);
                         if (-1 != startIdx) {
                             int endIdx = startIdx + a.size() - 1;
-                            Log.d("Bharani", "Success");
+                            alertGenerator.buildAlert(context, true);
                         } else {
-                            Log.d("Bharani", "Failure");
+                            alertGenerator.buildAlert(context, false);
                         }
                     }
                 }
