@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.padhuga.tamil.games.R;
 import com.padhuga.tamil.games.models.Data;
@@ -48,10 +47,5 @@ public class DetailsFragment extends Fragment {
         Constants.parentHeading = data.getParentHeading();
         results = data.getResult();
         new ItemGenerator(getActivity()).init(rootView, Constants.parentCount, Constants.layoutType, Constants.parentHeading, Constants.childItems, results);
-        if (Constants.parentCount != 2) {
-            LinearLayout adParentView = rootView.findViewById(R.id.ad_parent_view);
-            adParentView.setVisibility(View.VISIBLE);
-            //  initializeAds();
-        }
     }
 }
