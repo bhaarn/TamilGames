@@ -1,6 +1,7 @@
 package com.padhuga.tamil.games.activities;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +28,7 @@ public class DetailsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_details, container, false);
@@ -37,15 +38,19 @@ public class DetailsFragment extends Fragment {
 
     private void setData(ViewGroup rootView) {
         ArrayList<Results> results;
-        int position = getArguments().getInt(Constants.ARG_SECTION_POSITION);
-        int childPosition = getArguments().getInt(Constants.ARG_CHILD_POSITION);
-        Data data = ((BaseActivity) getActivity()).parentModel.getData().getType().get(position).getType().get(childPosition);
+        int position = -1;
+        int childPosition = -1;
+        if(getArguments() != null) {
+            position = getArguments().getInt(Constants.ARG_SECTION_POSITION);
+            childPosition = getArguments().getInt(Constants.ARG_CHILD_POSITION);
+        }
+        Data data = getActivity() != null ? ((BaseActivity) getActivity()).parentModel.getData().getType().get(position).getType().get(childPosition) : null;
 
-        Constants.parentCount = Integer.parseInt(data.getParentCount());
-        Constants.layoutType = data.getParentType();
-        Constants.childItems = data.getItems();
-        Constants.parentHeading = data.getParentHeading();
-        results = data.getResult();
+        Constants.parentCount = Integer.parseInt(data != null ? data.getParentCount() : null);
+        Constants.layoutType = data != null ? data.getParentType() : null;
+        Constants.childItems = data != null ? data.getItems() : null;
+        Constants.parentHeading = data != null ? data.getParentHeading() : null;
+        results = data != null ? data.getResult() : null;
         new ItemGenerator(getActivity()).init(rootView, Constants.parentCount, Constants.layoutType, Constants.parentHeading, Constants.childItems, results);
     }
 }

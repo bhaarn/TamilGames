@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/tamil_mother"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.BaseActivity"
+            android:label="@string/app_name" />
         <activity
             android:name=".activities.SplashActivity"
             android:theme="@style/SplashTheme">

@@ -3,10 +3,6 @@
 
     <string name="app_name">Games</string>
     <string name="ad_id">ca-app-pub-2373003321681741~7281773351</string>
-    <string name="icon_text">Icon Text</string>
-    <string name="icon">Icon</string>
-    <string name="text">Text</string>
-
     <string name="json_file_name">data.json</string>
     <string name="json_open_file_format">UTF-8</string>
     <string name="action_app_rate">Rate the App</string>

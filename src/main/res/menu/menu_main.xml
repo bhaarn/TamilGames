@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="dev.app.com.gsonparsing.MainActivity">
+    tools:context="com.padhuga.tamil.games.activities.MainActivity">
     <item
         android:id="@+id/action_app_rate"
         android:icon="@android:drawable/btn_star"
@@ -20,7 +20,7 @@
         android:orderInCategory="102"
         android:title="@string/action_app_share"
         app:showAsAction="ifRoom|withText"
-        android:actionProviderClass="android.widget.ShareActionProvider"/>
+        app:actionProviderClass="android.widget.ShareActionProvider"/>
     <item
         android:id="@+id/action_more_apps"
         android:icon="@android:drawable/ic_menu_more"

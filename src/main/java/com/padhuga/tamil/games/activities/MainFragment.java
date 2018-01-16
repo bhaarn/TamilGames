@@ -29,26 +29,23 @@ public class MainFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        parentPosition = getArguments().getInt(Constants.ARG_SECTION_POSITION);
-        initializeList(rootView);
+        if(getArguments() != null) {
+            parentPosition = getArguments().getInt(Constants.ARG_SECTION_POSITION);
+        }
+        initializeList();
         return rootView;
     }
 
-    private void initializeList(View rootView) {
+    private void initializeList() {
         ArrayList<String> listData = new ArrayList<>();
-        for (int i = 0; i < ((BaseActivity)getActivity()).parentModel.getData().getType().get(parentPosition).getType().size(); i++) {
+        for (int i = 0; i < (getActivity() != null ? ((BaseActivity) getActivity()).parentModel.getData().getType().get(parentPosition).getType().size() : 0); i++) {
             listData.add(((BaseActivity)getActivity()).parentModel.getData().getType().get(parentPosition).getType().get(i).getTitle());
         }
 
-        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, listData);
-        setListAdapter(listViewAdapter);
-
-      /*  listView.setOnItemClickListener(new ListView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                setupUI(position);
-            }
-        });*/
+        if(getContext() != null) {
+            ArrayAdapter<String> listViewAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, listData);
+            setListAdapter(listViewAdapter);
+        }
     }
 
     @Override

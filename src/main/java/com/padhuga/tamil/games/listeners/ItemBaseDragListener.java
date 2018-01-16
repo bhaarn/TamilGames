@@ -119,7 +119,7 @@ public class ItemBaseDragListener implements View.OnDragListener {
                         a = droppedItems;
                         int startIdx = Collections.indexOfSubList(results.get(0).getParent1(), a);
                         if (-1 != startIdx) {
-                            int endIdx = startIdx + a.size() - 1;
+                           // int endIdx = startIdx + a.size() - 1;
                             alertGenerator.buildAlert(context, true);
                         } else {
                             alertGenerator.buildAlert(context, false);

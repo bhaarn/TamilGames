@@ -9,9 +9,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.gson.Gson;
 import com.padhuga.tamil.games.R;
 import com.padhuga.tamil.games.models.ParentModel;
-import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +26,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         appName = getPackageName();
-        parentModel = readJSONFromAssetsAndConvertTogson();
+        parentModel = readJSONFromAssetsAndConvertToGSON();
     }
 
     @Override
@@ -58,7 +58,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private ParentModel readJSONFromAssetsAndConvertTogson() {
+    private ParentModel readJSONFromAssetsAndConvertToGSON() {
         ParentModel parentModel = null;
         try {
             InputStream is = getAssets().open(getResources().getString(R.string.json_file_name));
@@ -101,7 +101,7 @@ public class BaseActivity extends AppCompatActivity {
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse(getString(R.string.old_play_store)
                             + appName)));
-        } catch (android.content.ActivityNotFoundException anfe) {
+        } catch (android.content.ActivityNotFoundException activityNotFountException) {
             startActivity(new Intent(
                     Intent.ACTION_VIEW,
                     Uri.parse(getString(R.string.new_play_store)
